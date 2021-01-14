@@ -7,6 +7,9 @@ public class Waypoint : MonoBehaviour
     [SerializeField]
     private Vector3[] points;
 
+    public Vector3[] Points => points;
+    public Vector3 CurrentPos => _currentPos;
+
     private Vector3 _currentPos;
     private bool _gameStarted;
         
