@@ -152,9 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f10caa235eb449d8200e0e6940b4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnMode: 1
+  spawnMode: 0
   enemyCount: 10
-  delayBetweenSpawns: 0.2
+  delayBtwWaves: 1
+  delayBetweenSpawns: 0.5
   minRandomDelay: 1
   maxRandomDelay: 3
 --- !u!4 &273110357
@@ -198,9 +199,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -6.520055, y: -2.727778, z: 0}
-  - {x: 1.5903752, y: 1.2211492, z: 0}
-  - {x: 7.479986, y: -2.2666316, z: 0}
+  - {x: -10.429067, y: -1.3423054, z: 0}
+  - {x: -0.438352, y: 4.486907, z: 0}
+  - {x: 8.8654585, y: 0.85068136, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
