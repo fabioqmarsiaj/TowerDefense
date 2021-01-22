@@ -31,8 +31,6 @@ public class WaypointEditor : Editor
 
             Handles.Label(Waypoint.CurrentPos + Waypoint.Points[i] + textAllignment, $"{i + 1}", textStyle);
 
-            EditorGUI.EndChangeCheck();
-
             if (EditorGUI.EndChangeCheck())
             {
                 Undo.RecordObject(target, "Free Move Handle");

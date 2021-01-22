@@ -15,8 +15,6 @@ public class Spawner : MonoBehaviour
     private SpawnModes spawnMode = SpawnModes.Fixed;
     [SerializeField]
     private int enemyCount = 10;
-    [SerializeField]
-    private GameObject testGO;
 
     [Header("Fixed Delay")]
     [SerializeField]
@@ -32,20 +30,22 @@ public class Spawner : MonoBehaviour
     private int _enemiesSpawned;
 
     private ObjectPooler _pooler;
+    private Waypoint _waypoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        _pooler = GetComponent<ObjectPooler>();   
+        _pooler = GetComponent<ObjectPooler>();
+        _waypoint = GetComponent<Waypoint>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _spawnTimer -= GetSpawnDelay();
+        _spawnTimer -= Time.deltaTime;
         if (_spawnTimer < 0)
         {
-            _spawnTimer = GetRandomDelay();
+            _spawnTimer = GetSpawnDelay();
 
             if (_enemiesSpawned < enemyCount)
             {
@@ -58,6 +58,11 @@ public class Spawner : MonoBehaviour
     private void SpawnEnemy()
     {
         GameObject newInstance = _pooler.GetInstanceFromPool();
+        Enemy enemy = newInstance.GetComponent<Enemy>();
+        enemy.Waypoint = _waypoint;
+
+        enemy.transform.localPosition = transform.position;
+
         newInstance.SetActive(true);
     }
 

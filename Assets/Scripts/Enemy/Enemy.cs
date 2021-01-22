@@ -9,10 +9,10 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private float moveSpeed = 3f;
-    [SerializeField]
-    private Waypoint waypoint;
 
-    public Vector3 CurrentPointPosition => waypoint.GetWaypointPosition(_currentWaypointIndex);
+    public Waypoint Waypoint { get; set; }
+
+    public Vector3 CurrentPointPosition => Waypoint.GetWaypointPosition(_currentWaypointIndex);
 
     private int _currentWaypointIndex;
 
@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
     private bool CurrentPointPositionReached()
     {
         float distanceToNextPointPosition = (transform.position - CurrentPointPosition).magnitude;
-        if(distanceToNextPointPosition < 0.1f)
+        if (distanceToNextPointPosition < 0.1f)
         {
             return true;
         }
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
 
     private void UpdateCurrentPointIndex()
     {
-        int lastWaypointIndex = waypoint.Points.Length - 1;
+        int lastWaypointIndex = Waypoint.Points.Length - 1;
         if (_currentWaypointIndex < lastWaypointIndex)
         {
             _currentWaypointIndex++;
